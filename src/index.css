@@ -1,13 +1,255 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* ===== БАЗА ===== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    system-ui, -system-ui, sans-serif;
+  background: #020617;
+  color: #e5e7eb;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== ТЕМА / ПЕРЕМЕННЫЕ ===== */
+
+:root {
+  --bg: #020617;
+  --bg-elevated: #0b1120;
+  --bg-card: #111827;
+  --border-subtle: #1f2937;
+  --border-strong: #4b5563;
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+  --text-soft: #6b7280;
+  --accent: #6366f1;
+  --accent-soft: rgba(99, 102, 241, 0.15);
+  --accent-strong: #4f46e5;
+  --success: #22c55e;
+  --success-soft: rgba(34, 197, 94, 0.12);
+  --warning: #facc15;
+  --warning-soft: rgba(250, 204, 21, 0.12);
+  --danger: #f97373;
+}
+
+/* ===== ОБЩИЙ ЛЕЙАУТ ===== */
+
+.app-page {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #020617 0, #020617 40%, #020617) fixed;
+  color: var(--text-main);
+}
+
+.app-main {
+  padding: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ===== ТИПОГРАФИЯ ===== */
+
+.page-title {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  margin: 0 0 10px;
+}
+
+.page-subtitle {
+  margin: 0 0 14px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* ===== КНОПКИ ===== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid transparent;
+  cursor: pointer;
+  background: transparent;
+  color: var(--text-main);
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease,
+    transform 0.05s ease;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-strong), var(--accent));
+  border-color: var(--accent-strong);
+  color: #f9fafb;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.08);
+}
+
+.btn-outline {
+  border-color: var(--border-subtle);
+  background: transparent;
+}
+
+.btn-outline:hover {
+  border-color: var(--border-strong);
+  background: rgba(15, 23, 42, 0.9);
+}
+
+.btn-chip {
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 13px;
+  border-color: var(--border-subtle);
+  background: transparent;
+}
+
+.btn-chip.active {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.65);
+  background: var(--accent-soft);
+}
+
+/* зелёный/жёлтый chip */
+
+.btn-chip.success.active {
+  border-color: var(--success);
+  background: var(--success-soft);
+  color: #bbf7d0;
+}
+
+.btn-chip.warning.active {
+  border-color: var(--warning);
+  background: var(--warning-soft);
+  color: #fef9c3;
+}
+
+/* ===== ИНПУТЫ ===== */
+
+.input,
+.textarea,
+select {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border-subtle);
+  background: #020617;
+  color: var(--text-main);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease,
+    background 0.15s ease;
+}
+
+.input:focus,
+.textarea:focus,
+select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.5);
+  background: #020617;
+}
+
+.textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* ===== КАРТОЧКИ ===== */
+
+.card {
+  padding: 16px;
+  border-radius: 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.45);
+  transition:
+    background 0.15s ease,
+    transform 0.08s ease,
+    box-shadow 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.card-hover {
+  cursor: pointer;
+}
+
+.card-hover:hover {
+  background: #0b1220;
+  transform: translateY(-1px);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.7);
+  border-color: #1f2937;
+}
+
+/* ===== БЕЙДЖИ ===== */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-main);
+  white-space: nowrap;
+}
+
+.badge-soft {
+  border-color: var(--border-subtle);
+  background: rgba(31, 41, 55, 0.6);
+}
+
+.badge-success {
+  background: var(--success-soft);
+  border-color: var(--success);
+  color: #bbf7d0;
+}
+
+.badge-info {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: #3b82f6;
+  color: #bfdbfe;
+}
+
+/* ===== ПРОЧЕЕ ===== */
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.text-soft {
+  color: var(--text-soft);
+}
+
+.chips-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }

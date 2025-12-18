@@ -1,0 +1,27 @@
+.floating-chat-btn {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(99, 102, 241, 0.6);
+  backdrop-filter: blur(6px);
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.20);
+  z-index: 9999;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s;
+  opacity: 0.8;
+}
+
+.floating-chat-btn:hover {
+  opacity: 1;
+  transform: scale(1.08);
+  box-shadow: 0 8px 26px rgba(0,0,0,0.3);
+}
