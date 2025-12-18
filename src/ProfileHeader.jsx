@@ -26,7 +26,7 @@ const ProfileHeader = () => {
 
   const isActive = (pathPrefix) => location.pathname.startsWith(pathPrefix);
 
-  // есть ли непрочитанные сообщения для текущей роли
+  
   const hasUnread = useMemo(() => {
     return Object.values(chatsByQuestionId || {}).some((msgs) =>
       msgs.some((m) => m.unreadFor === role)
@@ -47,7 +47,7 @@ const ProfileHeader = () => {
         justifyContent: "space-between",
       }}
     >
-      {/* блок пользователя */}
+      {}
       <div
         onClick={goToProfile}
         style={{
@@ -74,7 +74,7 @@ const ProfileHeader = () => {
         </div>
       </div>
 
-      {/* навигация */}
+      {}
       <nav
         style={{
           display: "flex",
@@ -96,10 +96,10 @@ const ProfileHeader = () => {
           onClick={() => navigate("/chats")}
           style={{ position: "relative" }}
         >
-          {/* текст кнопки меняется если есть непрочитанные */}
+          {}
           {hasUnread ? "Мои чаты 🔔" : "Мои чаты"}
 
-          {/* маленькая точка-индикатор сверху справа на кнопке */}
+          {}
           {hasUnread && (
             <span
               style={{

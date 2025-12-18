@@ -18,16 +18,11 @@ const ChatsListPage = () => {
 
       const lastMessage = msgs[msgs.length - 1];
 
-      // есть ли непрочитанные сообщения для текущей роли
+      
       const hasUnread = msgs.some((m) => m.unreadFor === role);
 
-      // Фильтрация по роли
-
-      // 🔹 Для помощника:
-      // показываем чат, если:
-      // 1) он уже писал туда (senderName === name или senderRole === "helper")
-      //    ИЛИ
-      // 2) студент написал ему (unreadFor === "helper")
+      
+      
       if (role === "helper") {
         const isInChat = msgs.some(
           (m) =>
@@ -38,8 +33,7 @@ const ChatsListPage = () => {
         if (!isInChat) return null;
       }
 
-      // 🔹 Для новичка:
-      // показываем, если он автор вопроса или уже писал в чат
+      
       if (role === "student") {
         const isInChat =
           question.author === name ||
@@ -92,7 +86,7 @@ const ChatsListPage = () => {
                   gap: 6,
                 }}
               >
-                {/* Верхняя строка: заголовок + статус + "Новое" */}
+                {}
                 <div
                   style={{
                     display: "flex",
@@ -148,7 +142,7 @@ const ChatsListPage = () => {
                   )}
                 </div>
 
-                {/* Нижняя строка: последнее сообщение + время */}
+                {}
                 <div
                   style={{
                     display: "flex",

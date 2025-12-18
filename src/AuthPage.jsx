@@ -65,7 +65,7 @@ const AuthPage = () => {
             Внутренний сервис &quot;помощь новичкам&quot;.
           </p>
 
-          {/* переключатель режимов */}
+          {}
           <div
             style={{
               display: "flex",
@@ -164,7 +164,7 @@ const AuthPage = () => {
             </div>
           )}
 
-          {/* демо-аккаунты */}
+          {}
           <div
             style={{
               padding: 12,

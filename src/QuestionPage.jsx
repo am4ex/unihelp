@@ -85,7 +85,7 @@ const QuestionPage = () => {
 
       <main className="app-main" style={{ display: "flex", flexDirection: "column", gap: 20 }}>
 
-        {/* Кнопка назад */}
+        {}
         <button
           onClick={() => navigate("/questions")}
           className="btn btn-outline"
@@ -94,7 +94,7 @@ const QuestionPage = () => {
           ← Назад к вопросам
         </button>
 
-        {/* КАРТОЧКА ВОПРОСА */}
+        {}
         <div className="card" style={{ padding: 20 }}>
           <h2 className="page-title" style={{ marginBottom: 6 }}>
             {question.title}
@@ -108,7 +108,7 @@ const QuestionPage = () => {
             Автор: <strong>{question.author}</strong>
           </p>
 
-          {/* статус + кнопка внизу карточки */}
+          {}
           <div
             style={{
               marginTop: 12,
@@ -158,7 +158,7 @@ const QuestionPage = () => {
           </div>
         </div>
 
-        {/* РЕЙТИНГ — после решения */}
+        {}
         {bestAnswer && helperName && isResolved && (
           <div className="card" style={{ padding: 20 }}>
             <h3 style={{ margin: "0 0 8px", fontSize: 16 }}>
@@ -204,14 +204,14 @@ const QuestionPage = () => {
           </div>
         )}
 
-        {/* ПОДСКАЗКА ДЛЯ РОЛИ */}
+        {}
         <p className="text-muted" style={{ fontSize: 14 }}>
           {role === "helper"
             ? "Вы помощник — дайте понятный ответ."
             : "Вы новичок — выберите лучший ответ и отметьте вопрос решённым."}
         </p>
 
-        {/* ФОРМА ОТВЕТА ДЛЯ ПОМОЩНИКА */}
+        {}
         {role === "helper" && (
           <div className="card" style={{ padding: 20 }}>
             <form
@@ -248,7 +248,7 @@ const QuestionPage = () => {
           </div>
         )}
 
-        {/* СПИСОК ОТВЕТОВ */}
+        {}
         <h3 style={{ fontSize: 18 }}>Ответы ({answers.length})</h3>
 
         {answers.length === 0 ? (
@@ -310,7 +310,7 @@ const QuestionPage = () => {
           })
         )}
 
-        {/* ПЕРЕХОД В ЧАТ */}
+        {}
         {bestAnswerId && (
           <button
             onClick={() => navigate(`/chat/${questionIdNum}`)}

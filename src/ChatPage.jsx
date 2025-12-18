@@ -80,15 +80,15 @@ const ChatPage = () => {
           ← К вопросу
         </button>
 
-        {/* заголовок вопроса */}
+        {}
         <h2 className="page-title">{question.title}</h2>
 
-        {/* описание вопроса */}
+        {}
         <p className="text-muted" style={{ marginBottom: 4 }}>
           {question.body}
         </p>
 
-        {/* статус вопроса */}
+        {}
         <p
           style={{
             fontSize: 13,
@@ -99,7 +99,7 @@ const ChatPage = () => {
           Статус: {isResolved ? "вопрос решён ✅" : "ожидает решения ⏳"}
         </p>
 
-        {/* пояснение про чат */}
+        {}
         <p className="text-muted" style={{ marginBottom: 12 }}>
           Вы общаетесь по этому вопросу с собеседником один на один.
         </p>
@@ -172,7 +172,7 @@ const ChatPage = () => {
           <div ref={bottomRef} />
         </div>
 
-        {/* форма ввода */}
+        {}
         <form
           onSubmit={handleSend}
           style={{

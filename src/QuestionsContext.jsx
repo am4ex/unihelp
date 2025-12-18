@@ -41,7 +41,7 @@ export const QuestionsProvider = ({ children }) => {
     localStorage.setItem("unihelp_state", JSON.stringify(state));
   }, [state]);
 
-  // создать вопрос
+  
   const addQuestion = (title, body, author, category = "other") => {
     const id = Date.now();
     const newQuestion = {
@@ -62,7 +62,7 @@ export const QuestionsProvider = ({ children }) => {
     return id;
   };
 
-  // добавить ответ
+  
   const addAnswer = (questionId, text, author) => {
     setState((prev) => {
       const prevAnswers = prev.answers[questionId] || [];
@@ -90,7 +90,7 @@ export const QuestionsProvider = ({ children }) => {
     });
   };
 
-  // выбор "лучшего" ответа
+  
   const chooseBestAnswer = (questionId, answerId) => {
     setState((prev) => ({
       ...prev,
@@ -101,7 +101,7 @@ export const QuestionsProvider = ({ children }) => {
     }));
   };
 
-  // отметить вопрос решённым / не решённым
+  
   const markQuestionResolved = (questionId, resolved = true) => {
     setState((prev) => ({
       ...prev,
@@ -111,12 +111,12 @@ export const QuestionsProvider = ({ children }) => {
     }));
   };
 
-  // добавить сообщение в чат
+  
   const addChatMessage = (questionId, text, senderRole, senderName) => {
     setState((prev) => {
       const prevMessages = prev.chats[questionId] || [];
 
-      // кому будет "непрочитанное" сообщение
+     
       const recipientRole = senderRole === "student" ? "helper" : "student";
 
       const now = new Date();
@@ -139,7 +139,7 @@ export const QuestionsProvider = ({ children }) => {
     });
   };
 
-  // пометить сообщения чата прочитанными для роли
+  
   const markChatRead = (questionId, role) => {
     setState((prev) => {
       const msgs = prev.chats[questionId] || [];
@@ -164,7 +164,7 @@ export const QuestionsProvider = ({ children }) => {
     });
   };
 
-  // общее количество непрочитанных для роли
+  
   const getUnreadCountForRole = (role) => {
     let count = 0;
     Object.values(state.chats).forEach((msgs) => {
@@ -175,7 +175,7 @@ export const QuestionsProvider = ({ children }) => {
     return count;
   };
 
-  // поставить / обновить оценку помощнику за конкретный вопрос
+  
   const rateHelper = (questionId, value, helperName) => {
     setState((prev) => ({
       ...prev,

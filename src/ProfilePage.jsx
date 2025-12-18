@@ -14,12 +14,12 @@ const ProfilePage = () => {
 
   const roleLabel = role === "helper" ? "Помощник" : "Новичок";
 
-  // -------- СТАТИСТИКА ДЛЯ НОВИЧКА --------
+  
   const myQuestions = questions.filter((q) => q.author === name);
   const resolvedMyQuestions = myQuestions.filter((q) => q.resolved);
   const unresolvedMyQuestions = myQuestions.filter((q) => !q.resolved);
 
-  // -------- СТАТИСТИКА ДЛЯ ПОМОЩНИКА --------
+  
   let myAnswersCount = 0;
   let acceptedAnswersCount = 0;
   const myRatings = [];
@@ -51,8 +51,7 @@ const ProfilePage = () => {
     localStorage.removeItem("unihelp_role");
     localStorage.removeItem("unihelp_name");
     localStorage.removeItem("unihelp_email");
-    // можно очистить сохранённое состояние вопросов/чатов, если нужно:
-    // localStorage.removeItem("unihelp_state");
+    
 
     navigate("/");
   };
@@ -62,7 +61,7 @@ const ProfilePage = () => {
       <ProfileHeader />
 
       <main className="app-main" style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-        {/* карточка профиля */}
+        {}
         <div className="card">
           <h2 className="page-title" style={{ marginBottom: 6 }}>
             Профиль
@@ -78,7 +77,7 @@ const ProfilePage = () => {
           </p>
         </div>
 
-        {/* статистика по роли */}
+        {}
         <div className="card" style={{ display: "flex", flexDirection: "column", gap: 12 }}>
           <h3 style={{ margin: 0, fontSize: 18 }}>Статистика</h3>
 
@@ -180,7 +179,7 @@ const ProfilePage = () => {
           )}
         </div>
 
-        {/* действия */}
+        {}
         <div
           className="card"
           style={{

@@ -21,10 +21,10 @@ const QuestionsPage = () => {
   const [categoryFilter, setCategoryFilter] = useState("all");
   const [viewMode, setViewMode] = useState("all"); // all | mine | resolved | open
 
-  // мои вопросы (для новичка)
+  
   const myQuestions = questions.filter((q) => q.author === myName);
 
-  // вопросы, где помощник отвечал
+  
   const myAnsweredQuestionIds = new Set(
     Object.entries(answersByQuestionId)
       .filter(([, answers]) => answers.some((a) => a.author === myName))
@@ -34,11 +34,11 @@ const QuestionsPage = () => {
     myAnsweredQuestionIds.has(q.id)
   );
 
-  // решённые / нерешённые
+  
   const resolvedQuestions = questions.filter((q) => q.resolved);
   const openQuestions = questions.filter((q) => !q.resolved);
 
-  // выбираем базовый список по режиму
+  
   let baseList = questions;
   if (viewMode === "mine") {
     baseList = role === "student" ? myQuestions : myAnsweredQuestions;
@@ -48,7 +48,7 @@ const QuestionsPage = () => {
     baseList = openQuestions;
   }
 
-  // поиск + фильтр по предмету
+  
   const filtered = baseList.filter((q) => {
     const title = (q.title || "").toLowerCase();
     const body = (q.body || "").toLowerCase();
@@ -77,7 +77,7 @@ const QuestionsPage = () => {
             : "Вы новичок: можете смотреть все вопросы, только свои, решённые или ещё нерешённые."}
         </p>
 
-        {/* режимы просмотра */}
+        {}
         <div className="chips-row">
           <button
             onClick={() => setViewMode("all")}
@@ -114,7 +114,7 @@ const QuestionsPage = () => {
           </button>
         </div>
 
-        {/* поиск + предмет */}
+        {}
         <div
           style={{
             display: "flex",
@@ -145,7 +145,7 @@ const QuestionsPage = () => {
           </select>
         </div>
 
-        {/* список вопросов */}
+        {}
         <div className="card-list">
           {filtered.length === 0 ? (
             <p className="text-muted" style={{ fontSize: 14 }}>
